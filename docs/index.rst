@@ -36,7 +36,7 @@ Getting Started
 
 The following code illustrates how to setup environment based configuration. The
 first thing to do is create a configuration file. These can be created using Python
-or Yaml. 
+or Yaml.
 
 Python::
 
@@ -72,11 +72,11 @@ Next, create your application and initialize the Environments extensions::
     from flask_environments import Environments
 
     app = Flask(__name__)
-    env = Environments(self.app)
+    env = Environments(app)
 
 Then simply use the `from_object` method or the `from_yaml` method to load
 the configuration::
-    
+
     env.from_object('myapp.config')
     env.from_yaml(os.path.join(os.getcwd(), 'myapp', 'config.yml'))
 
@@ -84,7 +84,7 @@ Only the values for the specified environment will be applied.
 
 Flask-Environments assumes an operating system environment variable named `FLASK_ENV`
 will be set to one of your possible environments. If it is not set, it will default
-to `DEVELOPMENT`. 
+to `DEVELOPMENT`.
 
 To change the default environment or the environment varibale name pass the `var_name`
 or `default_env` parameters to the Environments constructor like so::
@@ -93,4 +93,4 @@ or `default_env` parameters to the Environments constructor like so::
     from flask_environments import Environments
 
     app = Flask(__name__)
-    env = Environments(self.app, var_name='CUSTOM_VAR_NAME', default_env='CUSTOM_ENV')
+    env = Environments(app, var_name='CUSTOM_VAR_NAME', default_env='CUSTOM_ENV')
